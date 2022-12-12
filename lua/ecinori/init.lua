@@ -1,6 +1,7 @@
 require("ecinori.set")
 require("ecinori.remap")
 
+require("ecinori.packer")
 require("ecinori.lspconfig")
 
 

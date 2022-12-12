@@ -6,13 +6,11 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.incsearch = true
- 
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
 vim.g.mapleader = " "
 
-vim.opt.scrolloff=6
-
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+vim.opt.scrolloff = 6
