@@ -9,6 +9,7 @@ local on_attach = function(client, bufnr)
 
     nnoremap('gD', vim.lsp.buf.declaration, bufopts)
     nnoremap('gd', vim.lsp.buf.definition, bufopts)
+    nnoremap('gr', vim.lsp.buf.references, bufopts)
     nnoremap('gi', vim.lsp.buf.implementation, bufopts)
     nnoremap('<leader>rn', vim.lsp.buf.rename, bufopts)
     nnoremap('K', vim.lsp.buf.hover, bufopts)
@@ -24,6 +25,14 @@ require('lspconfig').rust_analyzer.setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities
+})
+
+require('lspconfig').tsserver.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    filetypes = {"typescript", "typescriptreact", "typescript.tsx"},
+    cmd = {"typescript-language-server", "--stdio"}
 })
 
 require('lspconfig').sumneko_lua.setup({
@@ -59,24 +68,24 @@ cmp.setup {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-        ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
+--        ['<Tab>'] = cmp.mapping(function(fallback)
+--            if cmp.visible() then
+--                cmp.select_next_item()
+--            elseif luasnip.expand_or_jumpable() then
+--                luasnip.expand_or_jump()
+--            else
+--                fallback()
+--            end
+--        end, { 'i', 's' }),
+--        ['<S-Tab>'] = cmp.mapping(function(fallback)
+--            if cmp.visible() then
+--                cmp.select_prev_item()
+--            elseif luasnip.jumpable(-1) then
+--                luasnip.jump(-1)
+--            else
+--                fallback()
+--            end
+--        end, { 'i', 's' }),
     }),
     sources = {
         { name = 'nvim_lsp' },

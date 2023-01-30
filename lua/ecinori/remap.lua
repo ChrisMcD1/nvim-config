@@ -9,6 +9,8 @@ nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
 nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
 nnoremap("<leader>fh", "<cmd>Telescope help_tags<cr>")
 
+nnoremap("<leader>gg", "<cmd>LazyGit<cr>")
+
 nnoremap("<c-d>", "<c-d>zz")
 nnoremap("<c-u>", "<c-u>zz")
 nnoremap("<C-J>", "<C-W><C-J>")
