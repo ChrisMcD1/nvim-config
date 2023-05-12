@@ -2,6 +2,7 @@ local nnoremap = require("ecinori.keymap").nnoremap
 
 local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
 
+
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -14,7 +15,6 @@ local on_attach = function(client, bufnr)
     nnoremap('<leader>rn', vim.lsp.buf.rename, bufopts)
     nnoremap('K', vim.lsp.buf.hover, bufopts)
     nnoremap('<C-k>', vim.lsp.buf.signature_help, bufopts)
-
 end
 
 local lsp_flags = {
@@ -35,7 +35,15 @@ require('lspconfig').tsserver.setup({
     cmd = {"typescript-language-server", "--stdio"}
 })
 
-require('lspconfig').sumneko_lua.setup({
+require('lspconfig').tailwindcss.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    filetypes = {"typescript", "typescriptreact", "typescript.tsx"},
+    cmd = {"tailwindcss-language-server", "--stdio"}
+})
+
+require('lspconfig').lua_ls.setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
@@ -48,7 +56,33 @@ require('lspconfig').sumneko_lua.setup({
     }
 })
 
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+-- Lsp setup for metals (Scala)
+local metals_config = require("metals").bare_config()
+metals_config.settings = {
+    showImplicitArguments = true,
+}
+--
+metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+--
+local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "scala", "sbt", "java" },
+    callback = function()
+      require("metals").initialize_or_attach({})
+        -- basic remaps for nvim-metals
+        nnoremap('gD', vim.lsp.buf.declaration)
+        nnoremap('gd', vim.lsp.buf.definition)
+        nnoremap('gr', vim.lsp.buf.references)
+        nnoremap('gi', vim.lsp.buf.implementation)
+        nnoremap('<leader>rn', vim.lsp.buf.rename)
+        nnoremap('K', vim.lsp.buf.hover)
+        nnoremap('<C-k>', vim.lsp.buf.signature_help)
+
+    end,
+    group = nvim_metals_group,
+})
+
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 
 local luasnip = require 'luasnip'

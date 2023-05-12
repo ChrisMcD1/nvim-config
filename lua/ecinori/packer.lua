@@ -11,11 +11,17 @@ require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     use 'folke/tokyonight.nvim'
+    use 'terrortylor/nvim-comment'
+    require('nvim_comment').setup()
     --use {'neoclide/coc.nvim', branch = 'release'}
     --
     use 'kdheepak/lazygit.nvim'
 
     use 'neovim/nvim-lspconfig'
+    use({
+        'scalameta/nvim-metals',
+        requires = {{'nvim-lua/plenary.nvim'}}
+    })
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'saadparwaiz1/cmp_luasnip'
