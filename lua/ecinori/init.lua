@@ -3,7 +3,7 @@ require("ecinori.remap")
 
 require("ecinori.packer")
 require("ecinori.lspconfig")
-
+require("ecinori.telescope")
 
 
 require'nvim-treesitter.configs'.setup {
