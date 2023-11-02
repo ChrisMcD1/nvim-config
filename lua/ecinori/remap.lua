@@ -23,3 +23,47 @@ nnoremap("<C-H>", "<C-W><C-H>")
 --This unsets the "last search pattern" register by hitting return
 nnoremap("<CR>", ":noh<CR><CR>")
 
+
+
+-- LSP mappings
+nnoremap("gd",  vim.lsp.buf.definition)
+nnoremap("K",  vim.lsp.buf.hover)
+nnoremap("gi", vim.lsp.buf.implementation)
+nnoremap("gr", vim.lsp.buf.references)
+nnoremap("gds", vim.lsp.buf.document_symbol)
+nnoremap("gws", vim.lsp.buf.workspace_symbol)
+nnoremap("<leader>cl", vim.lsp.codelens.run)
+nnoremap("<leader>sh", vim.lsp.buf.signature_help)
+nnoremap("<leader>rn", vim.lsp.buf.rename)
+nnoremap("<leader>fn", vim.lsp.buf.format)
+nnoremap("<leader>ca", vim.lsp.buf.code_action)
+
+local map = vim.keymap.set
+
+map("n", "<leader>ws", function()
+  require("metals").hover_worksheet()
+end)
+
+-- all workspace diagnostics
+map("n", "<leader>aa", vim.diagnostic.setqflist)
+
+-- all workspace errors
+map("n", "<leader>ae", function()
+  vim.diagnostic.setqflist({ severity = "E" })
+end)
+
+-- all workspace warnings
+map("n", "<leader>aw", function()
+  vim.diagnostic.setqflist({ severity = "W" })
+end)
+
+-- buffer diagnostics only
+map("n", "<leader>d", vim.diagnostic.setloclist)
+
+map("n", "[c", function()
+  vim.diagnostic.goto_prev({ wrap = false })
+end)
+
+map("n", "]c", function()
+  vim.diagnostic.goto_next({ wrap = false })
+end)

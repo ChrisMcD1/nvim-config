@@ -11,21 +11,36 @@ require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     use 'folke/tokyonight.nvim'
+--    use 'JoosepAlviste/palenightfall.nvim'
     use 'terrortylor/nvim-comment'
     require('nvim_comment').setup()
-    --use {'neoclide/coc.nvim', branch = 'release'}
-    --
+
     use 'kdheepak/lazygit.nvim'
 
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
     use 'neovim/nvim-lspconfig'
-    use({
-        'scalameta/nvim-metals',
-        requires = {{'nvim-lua/plenary.nvim'}}
+
+    use ({'hrsh7th/nvim-cmp',
+        requires = {
+            {"hrsh7th/cmp-nvim-lsp"},
+            {"hrsh7th/cmp-vsnip"},
+            {"hrsh7th/vim-vsnip"},
+        }
     })
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'saadparwaiz1/cmp_luasnip'
-    use 'L3MON4D3/LuaSnip'
+
+    use ({
+        'scalameta/nvim-metals',
+        requires = {
+            {'nvim-lua/plenary.nvim'},
+            {'mfussenegger/nvim-dap'},
+        }
+    })
 
     use {
         'nvim-treesitter/nvim-treesitter',
