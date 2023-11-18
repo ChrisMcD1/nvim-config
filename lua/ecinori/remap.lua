@@ -30,13 +30,17 @@ nnoremap("gd",  vim.lsp.buf.definition)
 nnoremap("K",  vim.lsp.buf.hover)
 nnoremap("gi", vim.lsp.buf.implementation)
 nnoremap("gr", vim.lsp.buf.references)
-nnoremap("gds", vim.lsp.buf.document_symbol)
 nnoremap("gws", vim.lsp.buf.workspace_symbol)
 nnoremap("<leader>cl", vim.lsp.codelens.run)
 nnoremap("<leader>sh", vim.lsp.buf.signature_help)
 nnoremap("<leader>rn", vim.lsp.buf.rename)
 nnoremap("<leader>fn", vim.lsp.buf.format)
 nnoremap("<leader>ca", vim.lsp.buf.code_action)
+
+
+-- DANGEROUS: This means that my gd remape will be VERY slow 
+-- since it has to wait to make suer I'm not trying to do a `gds`
+-- nnoremap("gds", vim.lsp.buf.document_symbol)
 
 local map = vim.keymap.set
 
