@@ -22,8 +22,9 @@ vnoremap("K", ":m '<-2<CR>gv=gv")
 nnoremap("<CR>", ":noh<CR>")
 
 -- LSP mappings
-nnoremap("gd", vim.lsp.buf.definition)
 nnoremap("K", vim.lsp.buf.hover)
+nnoremap("gd", vim.lsp.buf.definition)
+nnoremap("gt",  vim.lsp.buf.type_definition)
 nnoremap("gi", vim.lsp.buf.implementation)
 nnoremap("gr", vim.lsp.buf.references)
 nnoremap("gws", vim.lsp.buf.workspace_symbol)
