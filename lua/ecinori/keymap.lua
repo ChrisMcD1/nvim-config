@@ -8,7 +8,7 @@ local function bind(op, outer_opts)
 		vim.keymap.set(op, lhs, rhs, opts)
 	end
 end
- 
+
 M.nmap = bind("n", {noremap = false})
 M.cmap = bind("c", {noremap = false})
 M.nnoremap = bind("n")
