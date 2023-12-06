@@ -19,7 +19,7 @@ vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
 --This unsets the "last search pattern" register by hitting return
-nnoremap("<CR>", ":noh<CR>")
+nnoremap("<CR>", ":noh<CR><CR>")
 
 -- LSP mappings
 nnoremap("K", vim.lsp.buf.hover)
