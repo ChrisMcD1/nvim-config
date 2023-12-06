@@ -89,6 +89,7 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
+  preselect = cmp.PreselectMode.None,
   mapping = cmp.mapping.preset.insert({
     -- None of this made sense to me when first looking into this since there
     -- is no vim docs, but you can't have select = true here _unless_ you are
