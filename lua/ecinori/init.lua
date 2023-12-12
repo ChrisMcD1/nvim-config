@@ -1,7 +1,7 @@
 require("ecinori.set")
-require("ecinori.remap")
-
 require("ecinori.lazy")
+
+require("ecinori.remap")
 require("ecinori.lspconfig")
 require("ecinori.telescope")
 
