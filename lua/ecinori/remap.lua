@@ -32,7 +32,6 @@ nnoremap("<leader>cl", vim.lsp.codelens.run)
 nnoremap("<leader>sh", vim.lsp.buf.signature_help)
 nnoremap("<leader>rn", vim.lsp.buf.rename)
 nnoremap("<leader>fn", vim.lsp.buf.format)
-nnoremap("<leader>ca", vim.lsp.buf.code_action)
 
 -- Moving around quickfix list
 nnoremap("<C-k>", "<cmd>cprev<CR>zz")
