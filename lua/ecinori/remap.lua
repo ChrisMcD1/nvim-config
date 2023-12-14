@@ -8,6 +8,7 @@ nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
 nnoremap("<leader>fr", "<cmd>Telescope resume<cr>")
 nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
 nnoremap("<leader>fh", "<cmd>Telescope help_tags<cr>")
+nnoremap("<C-x>", ":cclose<cr>")
 
 nnoremap("<leader>lg", "<cmd>LazyGit<cr>")
 
@@ -49,16 +50,18 @@ map("n", "<leader>ws", function()
 end)
 
 -- all workspace diagnostics
-map("n", "<leader>aa", vim.diagnostic.setqflist)
+map("n", "<leader>aa", function()
+    builtin.diagnostics()
+end)
 
 -- all workspace errors
 map("n", "<leader>ae", function()
-    vim.diagnostic.setqflist({ severity = "E" })
+    builtin.diagnostics({ severity = "E" })
 end)
 
 -- all workspace warnings
 map("n", "<leader>aw", function()
-    vim.diagnostic.setqflist({ severity = "W" })
+    builtin.diagnostics({ severity = "W" })
 end)
 
 -- buffer diagnostics only
