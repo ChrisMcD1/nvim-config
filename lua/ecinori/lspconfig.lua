@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = nvim_metals_group,
 })
 
--- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- completion related settings
 -- This is similiar to what I use
