@@ -25,6 +25,7 @@ nnoremap("<CR>", ":noh<CR><CR>")
 -- LSP mappings
 local builtin = require('telescope.builtin')
 nnoremap("K", vim.lsp.buf.hover)
+nnoremap("<leader>e", vim.diagnostic.open_float)
 nnoremap("gd", builtin.lsp_definitions)
 nnoremap("gt", builtin.lsp_type_definitions)
 nnoremap("gi", builtin.lsp_implementations)
