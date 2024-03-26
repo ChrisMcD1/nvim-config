@@ -7,6 +7,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.incsearch = true
 vim.opt.signcolumn = 'yes'
+vim.opt.nrformats:append('unsigned')
 
 vim.opt.smartindent = true
 
