@@ -14,26 +14,17 @@ local function copy(args)
     return args[1]
 end
 
-local same = function(index)
-    return f(copy, { index })
-end
-
 ls.config.set_config {
     updateevents = "TextChanged,TextChangedI"
 }
 
-ls.add_snippets("all", {
-    -- trigger is `fn`, second argument to snippet-constructor are the nodes to insert into the buffer on expansion.
+ls.add_snippets("scala", {
     s("sealt", {
-        -- Simple static text.
         t("sealed trait "),
-        -- function, first parameter is the function, second the Placeholders
-        -- whose text it gets as input.
-        -- Placeholder/Insert.
         i(1),
         t(" extends Product with Serializable"),
         t({ "", "object " }),
-        same(1),
+        f(copy, 1),
         t({ " {" }),
         t({ "", "\t" }),
         t({ "case object " }),
@@ -49,12 +40,5 @@ ls.add_snippets("all", {
         f(copy, 1),
         i(0),
         t({ "", "}" })
-        -- -- Placeholder with initial text.
-        -- i(2, "we placeholder"),
-        -- -- Linebreak
-        -- t({ ") {", "\t" }),
-        -- -- Last Placeholder, exit Point of the snippet.
-        -- i(0),
-        -- t({ "", "}" }),
     }),
 })
