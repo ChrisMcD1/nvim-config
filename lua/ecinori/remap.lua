@@ -67,6 +67,8 @@ map("n", "<leader>ws", function()
     require("metals").hover_worksheet()
 end)
 
+nnoremap("<leader>mn", "<cmd>MetalsNewScalaFile<cr>")
+
 -- all workspace diagnostics
 map("n", "<leader>aa", function()
     builtin.diagnostics()
