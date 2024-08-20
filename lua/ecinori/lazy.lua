@@ -110,6 +110,14 @@ require('lazy').setup({
         tag = '0.1.4',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
+    {
+        'ruifm/gitlinker.nvim',
+        dependencies = { { 'nvim-lua/plenary.nvim' } },
+        config = function()
+            require('gitlinker').setup()
+        end
+
+    }
 
 
 })
