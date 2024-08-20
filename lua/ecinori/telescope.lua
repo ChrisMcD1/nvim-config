@@ -1,15 +1,17 @@
 require('telescope').setup {
     defaults = {
-        mappings = {
-            i = {
-                ["v"] = require("telescope.actions").select_vertical,
-            }
-        },
-        path_display = {
-            shorten = { len = 1, exclude = { -1, -2, -3 } },
-        }
+        layout_strategy = "vertical",
     },
     pickers = {
+        lsp_implementations = {
+            fname_width = 120
+        },
+        lsp_references = {
+            fname_width = 120
+        },
+        lsp_incoming_calls = {
+            fname_width = 120
+        },
         live_grep = {
             additional_args = function(opts)
                 return { '--hidden', '--iglob', '!.git' }

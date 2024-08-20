@@ -30,13 +30,16 @@ nnoremap("gd", builtin.lsp_definitions)
 nnoremap("gt", builtin.lsp_type_definitions)
 nnoremap("gi", builtin.lsp_implementations)
 nnoremap("gr", builtin.lsp_references)
+nnoremap("gR", builtin.lsp_incoming_calls)
 
 nnoremap("gvd", function() builtin.lsp_definitions({ jump_type = "vsplit" }) end)
 nnoremap("gvt", function() builtin.lsp_type_definitions({ jump_type = "vsplit" }) end)
 nnoremap("gvi", function() builtin.lsp_implementations({ jump_type = "vsplit" }) end)
 nnoremap("gvr", function() builtin.lsp_references({ jump_type = "vsplit" }) end)
 
-nnoremap("gws", builtin.lsp_workspace_symbols)
+nnoremap("gws", vim.lsp.buf.workspace_symbol)
+nnoremap("gwz", builtin.lsp_dynamic_workspace_symbols)
+
 nnoremap("<leader>cl", vim.lsp.codelens.run)
 nnoremap("<leader>sh", vim.lsp.buf.signature_help)
 nnoremap("<leader>rn", vim.lsp.buf.rename)
