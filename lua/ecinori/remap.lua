@@ -61,6 +61,8 @@ map("n", "<leader>ws", function()
 end)
 
 nnoremap("<leader>mn", "<cmd>MetalsNewScalaFile<cr>")
+nnoremap("<leader>mi", "<cmd>MetalsImportBuild<cr>")
+nnoremap("<leader>mc", "<cmd>MetalsCompileClean<cr>")
 
 -- all workspace diagnostics
 map("n", "<leader>aa", function()
