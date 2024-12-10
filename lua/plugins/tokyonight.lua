@@ -5,11 +5,17 @@ return {
     version = "4.0.0",
     config = function()
         require("tokyonight").setup({
-            style  = "moon",
-            styles = {
-                floats = "normal"
+            transparent  = true,
+            style        = "moon",
+            styles       = {
+                floats = "transparent",
+                sidebars = "transparent",
             },
-            -- use_background = true
+            plugins      = {
+                telescope = true
+            },
+            dim_inactive = true,
+            lualine_bold = true,
         })
         vim.g.tokyonight_transparent_sidebar = true
         vim.g.tokyonight_transparent = true
