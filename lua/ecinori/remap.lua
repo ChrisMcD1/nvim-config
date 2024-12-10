@@ -3,11 +3,6 @@ local vnoremap = require("ecinori.keymap").vnoremap
 
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 
-nnoremap("<leader>ff", "<cmd>Telescope find_files<cr>")
-nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
-nnoremap("<leader>fr", "<cmd>Telescope resume<cr>")
-nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
-nnoremap("<leader>fh", "<cmd>Telescope help_tags<cr>")
 nnoremap("<C-x>", ":cclose<cr>")
 
 nnoremap("<leader>lg", "<cmd>LazyGit<cr>")
@@ -22,8 +17,17 @@ vnoremap("K", ":m '<-2<CR>gv=gv")
 --This unsets the "last search pattern" register by hitting return
 nnoremap("<CR>", ":noh<CR><CR>")
 
--- LSP mappings
 local builtin = require('telescope.builtin')
+local telescope = require('telescope')
+nnoremap("<leader>ff", builtin.find_files)
+nnoremap("<leader>fg", telescope.extensions.live_grep_args.live_grep_args)
+nnoremap("<leader>fr", builtin.resume)
+nnoremap("<leader>fb", builtin.buffers)
+nnoremap("<leader>fh", builtin.help_tags)
+nnoremap("<leader>fs", builtin.git_status)
+nnoremap("<leader>fc", builtin.git_bcommits)
+
+-- LSP mappings
 nnoremap("K", vim.lsp.buf.hover)
 nnoremap("<leader>e", vim.diagnostic.open_float)
 nnoremap("gd", builtin.lsp_definitions)
@@ -61,6 +65,7 @@ map("n", "<leader>ws", function()
 end)
 
 nnoremap("<leader>mn", "<cmd>MetalsNewScalaFile<cr>")
+nnoremap("<leader>ml", "<cmd>MetalsToggleLogs<cr>")
 nnoremap("<leader>mi", "<cmd>MetalsImportBuild<cr>")
 nnoremap("<leader>mc", "<cmd>MetalsCompileClean<cr>")
 
