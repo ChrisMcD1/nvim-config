@@ -4,7 +4,6 @@ local vnoremap = require("ecinori.keymap").vnoremap
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 
 nnoremap("<C-x>", ":cclose<cr>")
-
 nnoremap("<leader>lg", "<cmd>LazyGit<cr>")
 
 nnoremap("J", "mzJ`z")
@@ -17,32 +16,12 @@ vnoremap("K", ":m '<-2<CR>gv=gv")
 --This unsets the "last search pattern" register by hitting return
 nnoremap("<CR>", ":noh<CR><CR>")
 
-local builtin = require('telescope.builtin')
-local telescope = require('telescope')
-nnoremap("<leader>ff", builtin.find_files)
-nnoremap("<leader>fg", telescope.extensions.live_grep_args.live_grep_args)
-nnoremap("<leader>fr", builtin.resume)
-nnoremap("<leader>fb", builtin.buffers)
-nnoremap("<leader>fh", builtin.help_tags)
-nnoremap("<leader>fs", builtin.git_status)
-nnoremap("<leader>fc", builtin.git_bcommits)
-
 -- LSP mappings
 nnoremap("K", vim.lsp.buf.hover)
 nnoremap("<leader>e", vim.diagnostic.open_float)
-nnoremap("gd", builtin.lsp_definitions)
-nnoremap("gt", builtin.lsp_type_definitions)
-nnoremap("gi", builtin.lsp_implementations)
-nnoremap("gr", builtin.lsp_references)
-nnoremap("gR", builtin.lsp_incoming_calls)
-
-nnoremap("gvd", function() builtin.lsp_definitions({ jump_type = "vsplit" }) end)
-nnoremap("gvt", function() builtin.lsp_type_definitions({ jump_type = "vsplit" }) end)
-nnoremap("gvi", function() builtin.lsp_implementations({ jump_type = "vsplit" }) end)
-nnoremap("gvr", function() builtin.lsp_references({ jump_type = "vsplit" }) end)
 
 nnoremap("gws", vim.lsp.buf.workspace_symbol)
-nnoremap("gwz", builtin.lsp_dynamic_workspace_symbols)
+nnoremap("gwz", require("telescope.builtin").lsp_dynamic_workspace_symbols)
 
 nnoremap("<leader>cl", vim.lsp.codelens.run)
 nnoremap("<leader>sh", vim.lsp.buf.signature_help)
@@ -68,21 +47,6 @@ nnoremap("<leader>mn", "<cmd>MetalsNewScalaFile<cr>")
 nnoremap("<leader>ml", "<cmd>MetalsToggleLogs<cr>")
 nnoremap("<leader>mi", "<cmd>MetalsImportBuild<cr>")
 nnoremap("<leader>mc", "<cmd>MetalsCompileClean<cr>")
-
--- all workspace diagnostics
-map("n", "<leader>aa", function()
-    builtin.diagnostics()
-end)
-
--- all workspace errors
-map("n", "<leader>ae", function()
-    builtin.diagnostics({ severity = "E" })
-end)
-
--- all workspace warnings
-map("n", "<leader>aw", function()
-    builtin.diagnostics({ severity = "W" })
-end)
 
 -- buffer diagnostics only
 map("n", "<leader>d", vim.diagnostic.setloclist)
