@@ -43,11 +43,6 @@ map("n", "<leader>ws", function()
     require("metals").hover_worksheet()
 end)
 
-nnoremap("<leader>mn", "<cmd>MetalsNewScalaFile<cr>")
-nnoremap("<leader>ml", "<cmd>MetalsToggleLogs<cr>")
-nnoremap("<leader>mi", "<cmd>MetalsImportBuild<cr>")
-nnoremap("<leader>mc", "<cmd>MetalsCompileClean<cr>")
-
 -- buffer diagnostics only
 map("n", "<leader>d", vim.diagnostic.setloclist)
 
