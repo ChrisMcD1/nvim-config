@@ -19,7 +19,7 @@ require('lazy').setup({
     { import = "plugins" },
     {
         'folke/tokyonight.nvim',
-        commit = "63765c3",
+        commit = "8f72b06",
     },
     {
         "folke/trouble.nvim",
