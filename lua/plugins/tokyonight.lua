@@ -6,16 +6,16 @@ return {
     config = function()
         require("tokyonight").setup({
             -- style          = "night",
-            styles         = {
-                floats = "transparent"
-            },
-            use_background = true
+            -- styles         = {
+            --     floats = "transparent"
+            -- },
+            -- use_background = true
         })
         vim.g.tokyonight_transparent_sidebar = true
         vim.g.tokyonight_transparent = true
         vim.opt.background = 'dark'
         vim.opt.termguicolors = true
 
-        vim.cmd('colorscheme tokyonight-storm')
+        vim.cmd('colorscheme tokyonight-moon')
     end
 }
