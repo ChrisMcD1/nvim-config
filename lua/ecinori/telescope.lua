@@ -1,4 +1,5 @@
-require('telescope').setup {
+local telescope = require('telescope')
+telescope.setup {
     defaults = {
         layout_strategy = "vertical",
     },
@@ -22,3 +23,5 @@ require('telescope').setup {
         }
     }
 }
+
+telescope.load_extension("live_grep_args")
