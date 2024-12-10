@@ -17,9 +17,6 @@ vim.g.mapleader = " "
 
 vim.opt.scrolloff = 6
 
-vim.opt.termguicolors = true
---vim.opt.term = "screen-256color"
-vim.opt.background = "dark"
 vim.opt.shortmess:append({ I = true })
 
 if vim.fn.executable('nvr') == 1 then
