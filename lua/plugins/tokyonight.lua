@@ -4,12 +4,18 @@ return {
     priority = 1000,
     version = "4.0.0",
     config = function()
-        require("tokyonight").setup({ use_background = true })
+        require("tokyonight").setup({
+            -- style          = "night",
+            styles         = {
+                floats = "transparent"
+            },
+            use_background = true
+        })
         vim.g.tokyonight_transparent_sidebar = true
         vim.g.tokyonight_transparent = true
         vim.opt.background = 'dark'
         vim.opt.termguicolors = true
 
-        vim.cmd('colorscheme tokyonight')
+        vim.cmd('colorscheme tokyonight-storm')
     end
 }
