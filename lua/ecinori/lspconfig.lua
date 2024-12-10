@@ -17,7 +17,7 @@ require('lspconfig').rust_analyzer.setup({
     capabilities = capabilities
 })
 
-require('lspconfig').tsserver.setup({
+require('lspconfig').ts_lsp.setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
