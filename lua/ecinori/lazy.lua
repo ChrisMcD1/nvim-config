@@ -18,10 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
     { import = "plugins" },
     {
-        'folke/tokyonight.nvim',
-        commit = "30d7be3",
-    },
-    {
         "folke/trouble.nvim",
         dependencies = "kyazdani42/nvim-web-devicons"
     },
