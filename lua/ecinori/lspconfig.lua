@@ -1,7 +1,4 @@
-local nnoremap = require("ecinori.keymap").nnoremap
-
 local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
-
 
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -44,25 +41,6 @@ require('lspconfig').lua_ls.setup({
             }
         }
     }
-})
-
--- Lsp setup for metals (Scala)
-local metals_config = require("metals").bare_config()
-metals_config.settings = {
-    showImplicitArguments = true,
-    showImplicitConversionsAndClasses = true,
-    showInferredType = true,
-}
---
-metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
---
-local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "scala", "sbt", "java" },
-    callback = function()
-        require("metals").initialize_or_attach(metals_config)
-    end,
-    group = nvim_metals_group,
 })
 
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

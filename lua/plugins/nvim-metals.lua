@@ -11,5 +11,26 @@ return {
         { "<leader>ml", "<cmd>MetalsToggleLogs<cr>" },
         { "<leader>mi", "<cmd>MetalsImportBuild<cr>" },
         { "<leader>mc", "<cmd>MetalsCompileClean<cr>" },
-    }
+    },
+    ft = { "scala", "sbt", "java" },
+    config = function()
+        -- Lsp setup for metals (Scala)
+        local metals_config = require("metals").bare_config()
+        metals_config.settings = {
+            showImplicitArguments = true,
+            showImplicitConversionsAndClasses = true,
+            showInferredType = true,
+        }
+        --
+        metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+        --
+        local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = { "scala", "sbt", "java" },
+            callback = function()
+                require("metals").initialize_or_attach(metals_config)
+            end,
+            group = nvim_metals_group,
+        })
+    end
 }
