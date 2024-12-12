@@ -19,7 +19,7 @@ require('lazy').setup({
     { import = "plugins" },
     {
         "folke/trouble.nvim",
-        dependencies = "kyazdani42/nvim-web-devicons"
+        dependencies = "nvim-tree/nvim-web-devicons"
     },
     'terrortylor/nvim-comment',
     'neovim/nvim-lspconfig',
