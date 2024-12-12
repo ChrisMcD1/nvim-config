@@ -1,8 +1,6 @@
 local nnoremap = require("ecinori.keymap").nnoremap
 local vnoremap = require("ecinori.keymap").vnoremap
 
-nnoremap("<leader>pv", "<cmd>Ex<CR>")
-
 nnoremap("<C-x>", ":cclose<cr>")
 nnoremap("<leader>lg", "<cmd>LazyGit<cr>")
 
