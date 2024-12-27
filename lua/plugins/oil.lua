@@ -8,7 +8,7 @@ return {
     },
     lazy = false,
     keys = {
-        { "<leader>pv", "<cmd>Oil .<cr>" }
+        { "<leader>pv", "<cmd>Oil<cr>" }
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
 }
