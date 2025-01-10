@@ -4,6 +4,10 @@ return {
         keymaps = {
             ["<C-h>"] = false,
             ["<C-l>"] = false,
+        },
+        view_options = {
+            -- Show files and directories that start with "."
+            show_hidden = true
         }
     },
     lazy = false,
