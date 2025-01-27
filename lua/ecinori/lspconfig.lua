@@ -1,15 +1,10 @@
 local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
 
-local on_attach = function(client, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-end
---
 local lsp_flags = {
     debounce_text_changes = 150,
 }
 
 require('lspconfig').rust_analyzer.setup({
-    on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities
 })
@@ -17,7 +12,6 @@ require('lspconfig').rust_analyzer.setup({
 require('lspconfig').gopls.setup({})
 
 require('lspconfig').ts_lsp.setup({
-    on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
@@ -25,7 +19,6 @@ require('lspconfig').ts_lsp.setup({
 })
 
 require('lspconfig').tailwindcss.setup({
-    on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
@@ -33,7 +26,6 @@ require('lspconfig').tailwindcss.setup({
 })
 
 require('lspconfig').lua_ls.setup({
-    on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     settings = {
