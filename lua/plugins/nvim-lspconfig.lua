@@ -13,7 +13,7 @@ return {
 
         lspconfig.gopls.setup({})
 
-        lspconfig.ts_lsp.setup({
+        lspconfig.ts_ls.setup({
             capabilities = capabilities,
             filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
             cmd = { "typescript-language-server", "--stdio" }
