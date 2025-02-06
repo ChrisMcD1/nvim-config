@@ -13,16 +13,19 @@ return {
     opts = {
         defaults = {
             layout_strategy = "vertical",
+            layout_config = {
+                preview_cutoff = 30
+            }
         },
         pickers = {
             lsp_implementations = {
-                fname_width = 120
+                fname_width = 100
             },
             lsp_references = {
-                fname_width = 120
+                fname_width = 100
             },
             lsp_incoming_calls = {
-                fname_width = 120
+                fname_width = 100
             },
             live_grep = {
                 additional_args = function(opts)
