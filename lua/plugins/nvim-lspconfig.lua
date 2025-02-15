@@ -11,7 +11,13 @@ return {
             capabilities = capabilities
         })
 
-        lspconfig.gopls.setup({})
+        lspconfig.gopls.setup({
+            settings = {
+                gopls = {
+                    gofumpt = true
+                }
+            }
+        })
 
         lspconfig.ts_ls.setup({
             capabilities = capabilities,
