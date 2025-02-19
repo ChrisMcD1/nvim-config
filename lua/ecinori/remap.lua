@@ -2,7 +2,6 @@ local nnoremap = require("ecinori.keymap").nnoremap
 local vnoremap = require("ecinori.keymap").vnoremap
 
 nnoremap("<C-x>", ":cclose<cr>")
-nnoremap("<leader>lg", "<cmd>LazyGit<cr>")
 
 nnoremap("J", "mzJ`z")
 nnoremap("<c-d>", "<c-d>zz")
