@@ -51,3 +51,10 @@ end)
 map("n", "]c", function()
     vim.diagnostic.goto_next({ wrap = false })
 end)
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function()
+        vim.lsp.buf.format()
+    end
+})
