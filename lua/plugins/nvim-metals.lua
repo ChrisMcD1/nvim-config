@@ -23,6 +23,7 @@ return {
         }
         --
         metals_config.capabilities = require('blink.cmp').get_lsp_capabilities()
+        metals_config.init_options.statusBarProvider = "off"
         --
         local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
         vim.api.nvim_create_autocmd("FileType", {
