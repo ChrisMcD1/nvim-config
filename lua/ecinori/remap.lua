@@ -58,3 +58,25 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         vim.lsp.buf.format()
     end
 })
+
+vim.keymap.set({ 'n', 'v' }, '<leader>ly', function()
+    local file_path = vim.fn.expand('%:p')
+    local mode = vim.fn.mode()
+    local formatted_text
+
+    if mode == 'v' or mode == 'V' or mode == '\22' then -- visual mode
+        -- Get visual selection range
+        local start_line = vim.fn.line("'<")
+        local end_line = vim.fn.line("'>")
+        formatted_text = file_path .. '#L' .. start_line .. '-' .. end_line
+    else -- normal mode
+        local current_line = vim.fn.line('.')
+        formatted_text = file_path .. '#L' .. current_line
+    end
+
+    -- Yank to system clipboard register
+    vim.fn.setreg('*', formatted_text)
+
+    -- Optional: print confirmation message
+    print('Yanked: ' .. formatted_text)
+end, { desc = 'Yank file path with line number(s) to system clipboard' })
